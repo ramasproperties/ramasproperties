@@ -1,7 +1,6 @@
-
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap');
-  .rp-root{font-family:'DM Sans',sans-serif;background:#F5EFE0;min-height:100vh;color:#1a1a1a}
+  .rp-root{font-family:'DM Sans',sans-serif;background:#F5EFE0;color:#1a1a1a}
   .rp-header{background:#1B4D4A;padding:2rem 1.5rem 1.5rem;text-align:center;border-bottom:3px solid #C9903A}
   .rp-ornament{display:flex;justify-content:center;gap:6px;margin-bottom:1rem}
   .rp-diamond{width:8px;height:8px;background:#C9903A;transform:rotate(45deg)}
@@ -10,7 +9,9 @@
   .rp-tagline{font-size:13px;color:#C9903A;letter-spacing:.12em;text-transform:uppercase;font-weight:300;margin:0 0 1rem}
   .rp-ig-link{display:inline-flex;align-items:center;gap:6px;background:rgba(201,144,58,.15);border:1px solid rgba(201,144,58,.4);color:#C9903A;text-decoration:none;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:500;letter-spacing:.05em;transition:background .2s}
   .rp-ig-link:hover{background:rgba(201,144,58,.28)}
-  .rp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:1.25rem;padding:1.5rem 1rem 2rem;max-width:900px;margin:0 auto;box-sizing:border-box}
+  .rp-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;padding:1.5rem 1rem 2rem;max-width:900px;margin:0 auto;box-sizing:border-box}
+  @media(min-width:540px){.rp-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:820px){.rp-grid{grid-template-columns:repeat(3,1fr)}}
   .rp-card{background:#FFFDF7;border-radius:12px;overflow:hidden;border:1px solid rgba(201,144,58,.2);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
   .rp-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(27,77,74,.12)}
   .rp-img-wrap{width:100%;aspect-ratio:1/1;overflow:hidden;background:#E8E0D0;position:relative}
@@ -27,7 +28,6 @@
   .rp-footer{background:#1B4D4A;text-align:center;padding:1.5rem;border-top:3px solid #C9903A}
   .rp-footer p{color:rgba(245,239,224,.6);font-size:12px;margin:4px 0 0}
   .rp-footer strong{font-family:'Playfair Display',serif;color:#F5EFE0;font-size:15px;font-weight:400;letter-spacing:.06em}
-  @media(max-width:480px){.rp-grid{grid-template-columns:1fr;padding:1rem .75rem 2rem}}
 </style>
 <div class="rp-root">
   <header class="rp-header">
