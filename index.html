@@ -29,7 +29,10 @@
     .rp-title{font-size:14px;font-weight:500;color:#1a1a1a;margin:0;line-height:1.4}
     .rp-price{font-family:'Playfair Display',serif;font-size:16px;color:#C9903A;font-weight:600;margin:0}
     .rp-location{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:500;color:#1B4D4A;background:rgba(27,77,74,.08);border-radius:4px;padding:2px 7px 2px 5px;margin:2px 0 4px;width:fit-content}
-    .rp-desc{font-size:12px;color:#7a7a7a;line-height:1.6;margin:0;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    .rp-desc{font-size:12px;color:#7a7a7a;line-height:1.6;margin:0}
+    .rp-desc.collapsed{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    .rp-toggle{background:none;border:none;color:#C9903A;font-size:12px;font-weight:500;cursor:pointer;padding:4px 0 0;text-align:left;font-family:'DM Sans',sans-serif}
+    .rp-toggle:hover{text-decoration:underline}
     .rp-card-footer{padding:0 1rem 1rem}
     .rp-cta{display:block;width:100%;text-align:center;background:#1B4D4A;color:#F5EFE0;text-decoration:none;padding:9px 0;border-radius:8px;font-size:13px;font-weight:500;letter-spacing:.04em;transition:background .2s;border:none;cursor:pointer}
     .rp-cta:hover{background:#153d3a}
@@ -64,13 +67,35 @@
     const IG_DM = "https://www.instagram.com/ramasproperties/";
     const listings = [
       { title: "Rumah Dijual di Sleman, Yogyakarta Lokasi Strategis", price: "Rp 1.200.000.000", location: "Sleman, Yogyakarta", description: "Rumah mewah 2 lantai siap huni di Tridadi, Sleman, Jogja. Berjarak cuma 100 meter dari masjid, hunian dengan LB 200m² dan LT 100m² ini memadukan arsitektur modern dengan aksen batu alam mewah. Fasilitas premium: 5 kamar tidur, 3 kamar mandi, lantai granit, dan carport luas. Lokasi sangat strategis, tepat di samping GOR Koni Sleman. Dapatkan harga promo Rp1,2 Milyar (diskon Rp400 juta dari harga pasar). Yuk, jadwalkan survei sekarang!", badge: "Dijual", img: "3.jpg" },
-      { title: "Kost Murah, Lengkap, dan Strategis Dekat UGM", price: "Rp 600.000/bulan", location: "Sleman, Yogyakarta", description: "Kost murah & strategis dekat UGM untuk mahasiswa/pekerja. Berlokasi di Sinduadi, Sleman, hunian Rama’s Properties ini cuma 1 KM ke UGM dan 100M ke Ringroad Monjali. Lorong hunian nyaman. Sangat ramah Muslim karena berjarak 100M ke masjid. Fasilitas gratis Wi-Fi, kasur, lemari, listrik, kamar mandi dalam, dan parkir aman. Sewa murah: Rp600.000 (Lantai 1) & Rp650.000 (Lantai 2) per bulan. Slot terbatas, yuk pesan kamarmu sekarang!", badge: "Dikontrakkan", img: "1.jpg" },
+      { title: "Kost Murah, Lengkap, dan Strategis Dekat UGM", price: "Rp 600.000/bulan", location: "Sleman, Yogyakarta", description: "Kost murah & strategis dekat UGM untuk mahasiswa/pekerja. Berlokasi di Sinduadi, Sleman, hunian Rama's Properties ini cuma 1 KM ke UGM dan 100M ke Ringroad Monjali. Lorong hunian nyaman. Sangat ramah Muslim karena berjarak 100M ke masjid. Fasilitas gratis Wi-Fi, kasur, lemari, listrik, kamar mandi dalam, dan parkir aman. Sewa murah: Rp600.000 (Lantai 1) & Rp650.000 (Lantai 2) per bulan. Slot terbatas, yuk pesan kamarmu sekarang!", badge: "Dikontrakkan", img: "1.jpg" },
       { title: "Kost yang Lengkap dan Lingkungan yang Suportif", price: "Rp 550.000/bulan", location: "Sleman, Yogyakarta", description: "Kost nyaman dan strategis di Tridadi, Sleman dengan suasana desa yang tenang dan rukun. Rumah kost ini menawarkan hunian bebas drama hanya Rp550.000/bulan! Fasilitasnya lengkap, sudah termasuk kasur, kamar mandi dalam, listrik, WiFi gratis, serta area parkir aman. Lokasinya sangat juara: hanya 50 meter ke masjid, 500 meter ke pom bensin, 1 km ke pasar, dan 3 km ke Sleman City Hall (SCH) serta Pemda. Slot terbatas, yuk hubungi kami sebelum kehabisan!", badge: "Dikontrakkan", img: "2.jpg" }
     ];
     const grid = document.getElementById('listing-grid');
     listings.forEach(p => {
-      grid.innerHTML += `<div class="rp-card"><div class="rp-img-wrap"><img src="${p.img}" alt="${p.title}" loading="lazy"/><span class="rp-badge">${p.badge}</span></div><div class="rp-card-body"><p class="rp-title">${p.title}</p><p class="rp-price">${p.price}</p><span class="rp-location"><i class="ti ti-map-pin" style="font-size:12px" aria-hidden="true"></i>${p.location}</span><p class="rp-desc">${p.description}</p></div><div class="rp-card-footer"><a href="${IG_DM}" class="rp-cta" target="_blank">Hubungi Kami</a></div></div>`;
+      grid.innerHTML += `
+        <div class="rp-card">
+          <div class="rp-img-wrap">
+            <img src="${p.img}" alt="${p.title}" loading="lazy"/>
+            <span class="rp-badge">${p.badge}</span>
+          </div>
+          <div class="rp-card-body">
+            <p class="rp-title">${p.title}</p>
+            <p class="rp-price">${p.price}</p>
+            <span class="rp-location"><i class="ti ti-map-pin" style="font-size:12px" aria-hidden="true"></i>${p.location}</span>
+            <p class="rp-desc collapsed">${p.description}</p>
+            <button class="rp-toggle" onclick="toggleDesc(this)">Selengkapnya ▾</button>
+          </div>
+          <div class="rp-card-footer">
+            <a href="${IG_DM}" class="rp-cta" target="_blank">Hubungi Kami</a>
+          </div>
+        </div>`;
     });
+
+    function toggleDesc(btn) {
+      const desc = btn.previousElementSibling;
+      const collapsed = desc.classList.toggle('collapsed');
+      btn.textContent = collapsed ? 'Selengkapnya ▾' : 'Sembunyikan ▴';
+    }
   </script>
 </body>
 </html>
