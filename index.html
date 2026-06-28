@@ -64,12 +64,36 @@
   </footer>
 
   <script>
-    const IG_DM = "https://www.instagram.com/ramasproperties/";
     const listings = [
-      { title: "Rumah Dijual di Sleman, Yogyakarta Lokasi Strategis", price: "Rp 1.200.000.000", location: "Sleman, Yogyakarta", description: "Rumah mewah 2 lantai siap huni di Tridadi, Sleman, Jogja. Berjarak cuma 100 meter dari masjid, hunian dengan LB 200m² dan LT 100m² ini memadukan arsitektur modern dengan aksen batu alam mewah. Fasilitas premium: 5 kamar tidur, 3 kamar mandi, lantai granit, dan carport luas. Lokasi sangat strategis, tepat di samping GOR Koni Sleman. Dapatkan harga promo Rp1,2 Milyar (diskon Rp400 juta dari harga pasar). Yuk, jadwalkan survei sekarang!", badge: "Dijual", img: "3.jpg" },
-      { title: "Kost Murah, Lengkap, dan Strategis Dekat UGM", price: "Rp 600.000/bulan", location: "Sleman, Yogyakarta", description: "Kost murah & strategis dekat UGM untuk mahasiswa/pekerja. Berlokasi di Sinduadi, Sleman, hunian Rama's Properties ini cuma 1 KM ke UGM dan 100M ke Ringroad Monjali. Lorong hunian nyaman. Sangat ramah Muslim karena berjarak 100M ke masjid. Fasilitas gratis Wi-Fi, kasur, lemari, listrik, kamar mandi dalam, dan parkir aman. Sewa murah: Rp600.000 (Lantai 1) & Rp650.000 (Lantai 2) per bulan. Slot terbatas, yuk pesan kamarmu sekarang!", badge: "Dikontrakkan", img: "1.jpg" },
-      { title: "Kost yang Lengkap dan Lingkungan yang Suportif", price: "Rp 550.000/bulan", location: "Sleman, Yogyakarta", description: "Kost nyaman dan strategis di Tridadi, Sleman dengan suasana desa yang tenang dan rukun. Rumah kost ini menawarkan hunian bebas drama hanya Rp550.000/bulan! Fasilitasnya lengkap, sudah termasuk kasur, kamar mandi dalam, listrik, WiFi gratis, serta area parkir aman. Lokasinya sangat juara: hanya 50 meter ke masjid, 500 meter ke pom bensin, 1 km ke pasar, dan 3 km ke Sleman City Hall (SCH) serta Pemda. Slot terbatas, yuk hubungi kami sebelum kehabisan!", badge: "Dikontrakkan", img: "2.jpg" }
+      {
+        title: "Rumah Dijual di Sleman, Yogyakarta Lokasi Strategis",
+        price: "Rp 1.200.000.000",
+        location: "Sleman, Yogyakarta",
+        description: "Rumah mewah 2 lantai siap huni di Tridadi, Sleman, Jogja. Berjarak cuma 100 meter dari masjid, hunian dengan LB 200m² dan LT 100m² ini memadukan arsitektur modern dengan aksen batu alam mewah. Fasilitas premium: 5 kamar tidur, 3 kamar mandi, lantai granit, dan carport luas. Lokasi sangat strategis, tepat di samping GOR Koni Sleman. Dapatkan harga promo Rp1,2 Milyar (diskon Rp400 juta dari harga pasar). Yuk, jadwalkan survei sekarang!",
+        badge: "Dijual",
+        img: "3.jpg",
+        docUrl: "https://www.instagram.com/p/DZZgbXtEZb2/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+      },
+      {
+        title: "Kost Murah, Lengkap, dan Strategis Dekat UGM",
+        price: "Rp 600.000/bulan",
+        location: "Sleman, Yogyakarta",
+        description: "Kost murah & strategis dekat UGM untuk mahasiswa/pekerja. Berlokasi di Sinduadi, Sleman, hunian Rama's Properties ini cuma 1 KM ke UGM dan 100M ke Ringroad Monjali. Lorong hunian nyaman. Sangat ramah Muslim karena berjarak 100M ke masjid. Fasilitas gratis Wi-Fi, kasur, lemari, listrik, kamar mandi dalam, dan parkir aman. Sewa murah: Rp600.000 (Lantai 1) & Rp650.000 (Lantai 2) per bulan. Slot terbatas, yuk pesan kamarmu sekarang!",
+        badge: "Dikontrakkan",
+        img: "1.jpg",
+        docUrl: "https://www.instagram.com/p/DZThPTvmFTV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+      },
+      {
+        title: "Kost yang Lengkap dan Lingkungan yang Suportif",
+        price: "Rp 550.000/bulan",
+        location: "Sleman, Yogyakarta",
+        description: "Kost nyaman dan strategis di Tridadi, Sleman dengan suasana desa yang tenang dan rukun. Rumah kost ini menawarkan hunian bebas drama hanya Rp550.000/bulan! Fasilitasnya lengkap, sudah termasuk kasur, kamar mandi dalam, listrik, WiFi gratis, serta area parkir aman. Lokasinya sangat juara: hanya 50 meter ke masjid, 500 meter ke pom bensin, 1 km ke pasar, dan 3 km ke Sleman City Hall (SCH) serta Pemda. Slot terbatas, yuk hubungi kami sebelum kehabisan!",
+        badge: "Dikontrakkan",
+        img: "2.jpg",
+        docUrl: "https://www.instagram.com/p/DY_VQF_EQV2/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+      }
     ];
+
     const grid = document.getElementById('listing-grid');
     listings.forEach(p => {
       grid.innerHTML += `
@@ -86,7 +110,7 @@
             <button class="rp-toggle" onclick="toggleDesc(this)">Selengkapnya ▾</button>
           </div>
           <div class="rp-card-footer">
-            <a href="${IG_DM}" class="rp-cta" target="_blank">Hubungi Kami</a>
+            <a href="${p.docUrl}" class="rp-cta" target="_blank">Dokumentasi</a>
           </div>
         </div>`;
     });
